@@ -99,18 +99,20 @@ const SignupModal = ({ onClose }) => {
 
 
 
+
 const StepOne = ({ nextStep }) => {
   const [activeButton, setActiveButton] = useState('creator');
-  const [placeholderText, setPlaceholderText] = useState('Here is the text to explain Creator');
 
   const handleButtonClick = (buttonType) => {
     setActiveButton(buttonType);
-    if (buttonType === 'creator') {
-      setPlaceholderText('Here is the text to explain Creator');
-    } else if (buttonType === 'client') {
-      setPlaceholderText('Here is the text to explain Client');
-    }
   };
+
+  // Text explanations for Creator and Client
+  const creatorText = "Creators are individuals or entities that produce content, such as writers, artists, designers, or developers. They are responsible for generating original work.";
+  const clientText = "Clients are individuals or organizations that seek services or products from creators. They may commission work, purchase licenses, or collaborate with creators to fulfill their needs.";
+
+  // Determine which text to display based on activeButton state
+  const activeText = activeButton === 'creator' ? creatorText : clientText;
 
   return (
     <div className='grid grid-cols-12 gap-4 mt-5 '>
@@ -121,13 +123,13 @@ const StepOne = ({ nextStep }) => {
             <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-full space-x-2">
               <button
                 onClick={() => handleButtonClick('creator')}
-                className={`px-2 py-2 rounded-full font-[400] w-24 text-[#fff] transition duration-300 ${activeButton === 'creator' ? 'bg-[#22c55e] text-[#fff]' : 'bg-transparent text-[#fff]'}`}
+                className={`px-3 py-3 rounded-full font-[400] text-lg w-28 text-[#fff] transition duration-300 ${activeButton === 'creator' ? 'bg-[#22c55e] text-[#fff]' : 'bg-transparent text-[#fff]'}`}
               >
                 Creator
               </button>
               <button
                 onClick={() => handleButtonClick('client')}
-                className={`px-2 py-2 rounded-full font-[400] w-24 text-[#fff] transition duration-300 ${activeButton === 'client' ? 'bg-[#22c55e] text-[#fff]' : 'bg-transparent text-[#fff]'}`}
+                className={`px-3 py-3 rounded-full font-[400] text-lg w-28 text-[#fff] transition duration-300 ${activeButton === 'client' ? 'bg-[#22c55e] text-[#fff]' : 'bg-transparent text-[#fff]'}`}
               >
                 Client
               </button>
@@ -136,18 +138,15 @@ const StepOne = ({ nextStep }) => {
         </div>
       </div>
       <div className='col-span-12'>
-        <div className='py-2 px-2 relative mt-2 '>
-          <textarea
-            rows="8"
-            className="w-full bg-[#3c3c3c] hover:border-gray-300 rounded-2xl border-2 border-[#555] text-white py-2 px-4 focus:outline-none placeholder-white"
-            required
-            placeholder={placeholderText}
-          />
+        <div className='py-2 px-2 relative mt-2'>
+          <p className="text-white">{activeText}</p>
         </div>
       </div>
     </div>
   );
 };
+
+
 
 
 
