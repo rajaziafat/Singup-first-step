@@ -123,13 +123,13 @@ const StepOne = ({ nextStep }) => {
             <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-full space-x-2">
               <button
                 onClick={() => handleButtonClick('creator')}
-                className={`px-3 py-3 rounded-full font-[400] text-lg w-28 text-[#fff] transition duration-300 ${activeButton === 'creator' ? 'bg-[#22c55e] text-[#fff]' : 'bg-transparent text-[#fff]'}`}
+                className={`px-3 py-3 rounded-full font-[400] text-lg w-32 text-[#fff] transition duration-300 ${activeButton === 'creator' ? 'bg-[#22c55e] text-[#fff]' : 'bg-transparent text-[#fff]'}`}
               >
                 Creator
               </button>
               <button
                 onClick={() => handleButtonClick('client')}
-                className={`px-3 py-3 rounded-full font-[400] text-lg w-28 text-[#fff] transition duration-300 ${activeButton === 'client' ? 'bg-[#22c55e] text-[#fff]' : 'bg-transparent text-[#fff]'}`}
+                className={`px-3 py-3 rounded-full font-[400] text-lg w-32 text-[#fff] transition duration-300 ${activeButton === 'client' ? 'bg-[#22c55e] text-[#fff]' : 'bg-transparent text-[#fff]'}`}
               >
                 Client
               </button>
